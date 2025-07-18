@@ -57,7 +57,7 @@ pip install yfinance, numpy, pandas
 
 4. Create a "data" directory in the root of your Python development environment to store all market data.
 
-```txt
+```
 /your_environment/
 ├── backtest_python.cpython-312-x86_64-linux-gnu.so
 ├── main.py
@@ -77,7 +77,7 @@ sys.path.append(os.path.abspath("PATH_TO_SO_FILE"))
 
 This demo project simply pulls bar data from the Yahoo Finance API, imports it to the exposed components of the engine via pybind11, and then runs the backtest using the implemented user strategy from the "on_data" method in the Strategy class. However, this is simply one way to use the framework. The engine will run as long as the "on_data" method is implemented and all appropriate bar data is imported to the engine via properly formatted csv's:
 
-```csv
+```
 Date,Close,High,Low,Open,Volume
 ```
 
