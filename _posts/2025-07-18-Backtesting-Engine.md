@@ -1,6 +1,6 @@
 ---
 title: Backtesting Engine Framework
-description: An explanation and demonstration of a custom financial backtesting engine framework
+description: An explanation and demonstration of my custom financial backtesting engine framework
 author: John
 date: 2025-07-18 01:00:00 +0800
 categories: [Projects, Finance]
@@ -15,7 +15,7 @@ Recently I developed a C++ backtesting engine framework to simulate the performa
 
 ### What is a Backtesting Engine?
 
-Backtesting is the process of evaluating a trading strategy by testing it against historical data. A backtesting engine is a software application that automates this process. A backtesting engine takes in historical market data and a set of algorithmic trading rules (the trading strategy). It then simulates the market by feeding the trading strategy data, and allowing the strategy to trade based on that data over time. Backtesting provides traders with insight into how a particular strategy might behave in the future based on its behavior in the past. 
+Backtesting is the process of evaluating a trading strategy by testing it against historical data. A backtesting engine is a software application that automates this process. A backtesting engine takes in historical market data and a set of algorithmic trading rules (the trading strategy). It then simulates the market by feeding the trading strategy data and allowing the strategy to trade based on that data over time. Backtesting provides traders with insight into how a particular strategy might behave in the future based on its behavior in the past. 
 
 <br />
 
@@ -43,7 +43,7 @@ Here is how to setup a basic environment for utilizing the framework:
 
 1. Download the Python extension module (.so) from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
 
-2. In your Python development environment, install the following packages:
+1. In your Python development environment, install the following packages:
 
 - yfinance
 - numpy
@@ -53,9 +53,9 @@ Here is how to setup a basic environment for utilizing the framework:
 pip install yfinance, numpy, pandas
 ```
 
-3. Download the main and user Python files from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
+1. Download the main and user Python files from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
 
-4. Create a "data" directory in the root of your Python development environment to store all market data.
+1. Create a "data" directory in the root of your Python development environment to store all market data.
 
 ```
 /your_environment/
@@ -65,17 +65,17 @@ pip install yfinance, numpy, pandas
 ├── data/
 ```
 
-5. Adjust the path to the Python extension module (.so) at the top of both Python files.
+1. Adjust the path to the Python extension module (.so) at the top of both Python files.
 
 ```python
 sys.path.append(os.path.abspath("PATH_TO_SO_FILE"))
 ```
 
-6. Follow the instructions in comments on user.py to configure the backtest.
+1. Follow the instructions in comments on user.py to configure the backtest.
 
-7. Run main.py to perform the backtest.
+1. Run main.py to perform the backtest.
 
-This demo project simply pulls bar data from the Yahoo Finance API, imports it to the exposed components of the engine via pybind11, and then runs the backtest using the implemented user strategy from the "on_data" method in the Strategy class. However, this is simply one way to use the framework. The engine will run as long as the "on_data" method is implemented and all appropriate bar data is imported to the engine via properly formatted csv's:
+This demo project simply pulls bar data from the Yahoo Finance API, imports it to the exposed components of the engine via pybind11, and then runs the backtest using the implemented user strategy from the "on_data" method in the MyStrategy class. However, this is simply one way to use the framework. The engine will run as long as the "on_data" method is implemented and all appropriate bar data is imported to the engine via properly formatted csv's:
 
 ```
 Date,Close,High,Low,Open,Volume
