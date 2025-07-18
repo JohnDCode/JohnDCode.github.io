@@ -33,11 +33,55 @@ At its core, the engine simulates realistic market conditions, including:
 
 This design allows users to write trading strategies in Python while leveraging the speed and rigor of a C++ simulation engine. Through the Python interface, users can define strategies, configure backtests, and run simulations seamlessly.
 
-The engine is designed as a framework, such that users can build additional layers such as custom reporting, GUIs, or advanced analytics in python on top of the core C++ engine. This provides flexibility for both simple backtests and more sophisticated trading research pipelines.
+The engine is designed as a framework, such that users can build additional layers such as custom reporting, GUIs, or advanced analytics in Python on top of the core C++ engine. This provides flexibility for both simple backtests and more sophisticated trading research pipelines.
 
 <br />
 
-### Use
+### Using the Framework
+
+Here is how to setup a basic environment for utilizing the framework:
+
+1. Download the Python extension module (.so) from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
+
+2. In your Python development environment, install the following packages:
+
+- yfinance
+- numpy
+- pandas
+
+```bash
+pip install yfinance, numpy, pandas
+```
+
+3. Download the main and user Python files from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
+
+4. Create a "data" directory in the root of your Python development environment to store all market data.
+
+```txt
+/your_environment/
+├── backtest_python.cpython-312-x86_64-linux-gnu.so
+├── main.py
+├── user.py
+├── data/
+```
+
+5. Adjust the path to the Python extension module (.so) at the top of both Python files.
+
+```python
+sys.path.append(os.path.abspath("PATH_TO_SO_FILE"))
+```
+
+6. Follow the instructions in comments on user.py to configure the backtest.
+
+7. Run main.py to perform the backtest.
+
+This demo project simply pulls bar data from the Yahoo Finance API, imports it to the exposed components of the engine via pybind11, and then runs the backtest using the implemented user strategy from the "on_data" method in the Strategy class. However, this is simply one way to use the framework. The engine will run as long as the "on_data" method is implemented and all appropriate bar data is imported to the engine via properly formatted csv's:
+
+```csv
+Date,Close,High,Low,Open,Volume
+```
+
+This demonstrates the most basic behavior of the engine, simply performing a backtest based on imported data from Yahoo Finance. This behavior can be extended in Python to custom GUI's, reports, etc. as long as the "on_data" method is properly implemented and csv data is properly imported. 
 
 <br />
 
