@@ -249,4 +249,4 @@ Once again, despite running the test on a relatively short time frame, this stra
 
 ### Conclusion
 
-Altogether, this framework can be used for all kinds of backtesting operations. Traders can quickly put together backtests with the above methodology, or build on the shared library to create fully fledged backtesting engines.
+Altogether, this framework can be used for all kinds of backtesting operations. Traders can quickly put together backtests with the above methodology or build on the shared library to create fully fledged backtesting engines.
