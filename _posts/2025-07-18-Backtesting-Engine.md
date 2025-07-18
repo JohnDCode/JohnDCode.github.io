@@ -41,9 +41,9 @@ The engine is designed as a framework, such that users can build additional laye
 
 Here is how to setup a basic environment for utilizing the framework:
 
-1. Download the Python extension module (.so) from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
+`1.` Download the Python extension module (.so) from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
 
-1. In your Python development environment, install the following packages:
+`2.` In your Python development environment, install the following packages:
 
 - yfinance
 - numpy
@@ -53,9 +53,9 @@ Here is how to setup a basic environment for utilizing the framework:
 pip install yfinance, numpy, pandas
 ```
 
-1. Download the main and user Python files from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
+`3.` Download the main and user Python files from the [project Github](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish).
 
-1. Create a "data" directory in the root of your Python development environment to store all market data.
+`4.` Create a "data" directory in the root of your Python development environment to store all market data.
 
 ```
 /your_environment/
@@ -65,15 +65,15 @@ pip install yfinance, numpy, pandas
 ├── data/
 ```
 
-1. Adjust the path to the Python extension module (.so) at the top of both Python files.
+`5.` Adjust the path to the Python extension module (.so) at the top of both Python files.
 
 ```python
 sys.path.append(os.path.abspath("PATH_TO_SO_FILE"))
 ```
 
-1. Follow the instructions in comments on user.py to configure the backtest.
+`6.` Follow the instructions in comments on user.py to configure the backtest.
 
-1. Run main.py to perform the backtest.
+`7.` Run main.py to perform the backtest.
 
 This demo project simply pulls bar data from the Yahoo Finance API, imports it to the exposed components of the engine via pybind11, and then runs the backtest using the implemented user strategy from the "on_data" method in the MyStrategy class. However, this is simply one way to use the framework. The engine will run as long as the "on_data" method is implemented and all appropriate bar data is imported to the engine via properly formatted csv's:
 
