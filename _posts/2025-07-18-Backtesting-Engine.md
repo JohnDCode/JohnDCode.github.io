@@ -9,7 +9,7 @@ media_subpath: '/assets/2025-07-18-Backtesting-Engine'
 ---
 
 
-Recently I developed a C++ backtesting engine framework to simulate the performance of trading strategies with historical data. 
+Recently I developed a [C++ backtesting engine framework](https://github.com/JohnDCode/JDA-Backtesting-Engine-Publish) to simulate the performance of trading strategies with historical data. 
 
 
 
