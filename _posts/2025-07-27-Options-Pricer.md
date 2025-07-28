@@ -25,20 +25,27 @@ There are various types of options and additional parameters that factor into th
 
 ### Pricing Models
 
+The purpose of this post is to demonstrate the CLI tool that utilizes these models, but I'll provide a brief overview of the development of these models and a high level explanation of the ones I used. 
+
 Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of European style options contracts (and other derivatives).
 
 However, for American contracts, there is an issue. Within each option contract is an exercise or expiration date. For European style options, the option can only be exercised on such a date, while for American style options, the option can be exercised at any time up until or on that date. Due to this difference, the Black-Scholes model fails to price American style options. As such, a different approach is required.
 
-In 1979, John Cox, Stephen Ross, and Mark Rubinstein proposed the Binomial options pricing model as an expansion to the Black-Scholes model. This model operated on the idea that at any given time, an asset can either increase (up) or decrease (down) in value by particular factors (u/d). At time t=1, an asset can exist as its price at t=0 multiplied by the up factor, or it can exist as its price at t=0 multiplied by the down factor. As the asset follows a multiplicative random walk, this creates a tree of future possible asset prices:
+In 1979, John Cox, Stephen Ross, and Mark Rubinstein proposed the Binomial options pricing model as an expansion to the Black-Scholes model. This model operated on the idea that at any given time, an asset can either increase (up) or decrease (down) in value by particular factors (u/d). Contrary to the Black-Scholes model, it assumes that prices move in discrete steps. At time t=1, an asset can exist as its price at t=0 multiplied by the up factor, or it can exist as its price at t=0 multiplied by the down factor. As the asset follows a multiplicative random walk, this creates a tree of future possible asset prices:
 
 ![Binomial Tree](/binomialTree.png){: width="1086" height="395" }
-_Binomial Tree with 4 steps_
+_Binomial Tree with 4 steps, image from [here](https://gregorygundersen.com/blog/2023/06/03/binomial-options-pricing-model/)_
 
 In the above example, 4 steps are used to create a binomial tree. At the end of the tree, there are steps (n) + 1 nodes, leaving 5 distinct possibilities for the asset to reach after n steps. Each price is represented by S (the original price) multiplied by the respective degrees of applied up and down factors.
 
 This basic concept of estimating the future movements of an asset using these trees is the basis of the Binomial model for calculating American and European options values. 
 
-Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the Binomial model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
+Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the CRR Binomial pricing model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
+
+Once again, I've only provided a simple, overaching explanation on the binomial model. Here are two good sources to read more:
+
+-[Macroption](https://www.macroption.com/cox-ross-rubinstein-formulas/)
+-[NTU Paper](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)
 
 <br />
 
@@ -90,4 +97,55 @@ This command calculates the fair value of theoretical American options contracts
 
 ### Examples
 
+Note: I'm performing my tests on a Windows machine. The CLI is cross platform, with different versions being posted on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
+
 #### Example 1: Automatically Pricing a Live Apple Call Option
+
+Lets price a live Apple call option. We'll use the following command:
+
+```powershell
+options_pricer.exe auto -s AAPL -k 200 -n 10000
+```
+
+We do not need to specify the _--call_ flag, as the tool defaults to call options over put options.
+
+The tool then asks us to select an expiration date. Using the arrow and enter keys, lets select _2025-08-29_:
+
+![Auto Output 1](/autoOutput1.png){: width="1086" height="395" }
+_Powershell Window of Example 1_
+
+After making our selection, we see the following output:
+
+![Auto Output 2](/autoOutput2.png){: width="1086" height="395" }
+_Powershell Window of Example 1_
+
+Our selected option has been priced at $US16.83!
+
+#### Example 2: Manually Pricing a Theoretical Call Option
+
+Now, lets price the same option we did as above, but using the manual command to change the expiration date to 1 year from now. The command then becomes:
+
+```powershell
+options_pricer.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 -n 10000
+```
+
+This changes the output to:
+
+![Manual Output 1](/manualOutput1.png){: width="1086" height="395" }
+_Powershell Window of Example 2_
+
+As we can see, the difference in expiration date has increased the price of the option to $36.64.
+
+<br />
+
+### Conclusion
+
+Altogether, I am rather satisifed with this project. However, I did not fulfill my original goal of including support for the Black-Scholes model. As such, in the future I plan to add the following features:
+
+- Black-Scholes Model
+- Automatic and Manual European Options
+- Calculation of "The Greeks"
+
+Despite failure on the European support front, I still learned quite a bit. 
+
+Once again, the compiled binaries can be found on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
