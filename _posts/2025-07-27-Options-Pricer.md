@@ -29,23 +29,23 @@ The purpose of this post is to demonstrate the CLI tool that utilizes these mode
 
 Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of European style options contracts (and other derivatives).
 
-However, for American contracts, there is an issue. Within each option contract is an exercise or expiration date. For European style options, the option can only be exercised on such a date, while for American style options, the option can be exercised at any time up until or on that date. Due to this difference, the Black-Scholes model fails to price American style options. As such, a different approach is required.
+However, for American contracts, there is an issue. Within each option contract is an exercise or expiration date. For European style options, the option can only be exercised on such a date while for American style options, the option can be exercised at any time up until or on that date. Due to this difference, the Black-Scholes model fails to price American style options. As such, a different approach is required.
 
-In 1979, John Cox, Stephen Ross, and Mark Rubinstein proposed the Binomial options pricing model as an expansion to the Black-Scholes model. This model operated on the idea that at any given time, an asset can either increase (up) or decrease (down) in value by particular factors (u/d). Contrary to the Black-Scholes model, it assumes that prices move in discrete steps. At time t=1, an asset can exist as its price at t=0 multiplied by the up factor, or it can exist as its price at t=0 multiplied by the down factor. As the asset follows a multiplicative random walk, this creates a tree of future possible asset prices:
+In 1979, John Cox, Stephen Ross, and Mark Rubinstein proposed the binomial options pricing model as an expansion to the Black-Scholes model. This model operated on the idea that at any given time, an asset can either increase (up) or decrease (down) in value by particular factors (u/d). Contrary to the Black-Scholes model, it assumes that prices move in discrete steps. At time t=1, an asset can exist as its price at t=0 multiplied by the up factor, or it can exist as its price at t=0 multiplied by the down factor. As the asset follows a multiplicative random walk, this creates a tree of future possible asset prices:
 
 ![Binomial Tree](/binomialTree.png){: width="1086" height="395" }
-_Binomial Tree with 4 steps, image from [here](https://gregorygundersen.com/blog/2023/06/03/binomial-options-pricing-model/)_
+_Binomial Tree with 4 steps, diagram from [here](https://gregorygundersen.com/blog/2023/06/03/binomial-options-pricing-model/)_
 
 In the above example, 4 steps are used to create a binomial tree. At the end of the tree, there are steps (n) + 1 nodes, leaving 5 distinct possibilities for the asset to reach after n steps. Each price is represented by S (the original price) multiplied by the respective degrees of applied up and down factors.
 
-This basic concept of estimating the future movements of an asset using these trees is the basis of the Binomial model for calculating American and European options values. 
+This basic concept of estimating the future movements of an asset using these trees is the basis of the binomial model for calculating American and European options values. 
 
-Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the CRR Binomial pricing model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
+Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the CRR Binomial Pricing Model**. However, the binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
 
 Once again, I've only provided a simple, overarching explanation on the binomial model. Here are two good sources to read more:
 
--[Macroption](https://www.macroption.com/cox-ross-rubinstein-formulas/)
--[NTU Paper](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)
+-[Macroption](https://www.macroption.com/cox-ross-rubinstein-formulas/)Article
+-[NTU](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)Paper
 
 <br />
 
@@ -60,7 +60,7 @@ See below for specific examples and all arguments/flags for each command, but he
 
 #### Automatic (auto)
 
-Both of these commands are used to price American options using the Binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all available option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the strike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, relevant market data, and the risk free rate from U.S. treasury securities, to calculate the fair value of that options contract.
+Both of these commands are used to price American options using the binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all available option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the strike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, relevant market data, and the risk free rate from U.S. treasury securities, to calculate the fair value of that options contract.
 
 #### Manual
 
