@@ -23,9 +23,15 @@ There are various types of options and additional parameters that factor into th
 
 <br />
 
-### The Models
+### Pricing Models
 
-Here
+Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of options contracts (and other derivates). This model was intended for use in European style options contracts.
+
+However, for American contracts, there is an issue. Within each options contract contains an excersise or expiration date. For European style options, the option can only be excersised on such a date, while for American style options, the option can be excersised at anytime up until that date. Due to this difference, the Black-Scholes model fails to price American style options. As such, a different approach was required.
+
+In 1979, John Cox, Stephen Ross, and Mark Rubinstein proposed the binomial options pricing model as an expasion to the Black-Scholes model. This model operated on the idea that at any given time step, an asset can either increase or decrease in value by particular weights. The original paper outlines how these "up" (u) and "down" (d) factors have particular probabilities of being applied to the stock at each timestep. By utilizing multiple time steps, where at each node the asset can either increase or decrease by the up and down factors, a binomial tree is formed with all possible options at the end of the steps:
+
+![Binomial Tree](/binomialTree.png){: width="1086" height="395" }
 
 <br />
 
