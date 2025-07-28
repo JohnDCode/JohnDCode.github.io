@@ -25,7 +25,7 @@ There are various types of options and additional parameters that factor into th
 
 ### Pricing Models
 
-The purpose of this post is to demonstrate the CLI tool that utilizes these models, but I'll provide a brief overview of the development of these models and a high level explanation of the ones I used. 
+The purpose of this post is to demonstrate the CLI tool that utilizes these models, but I'll provide a brief overview of the development of these models and a high-level explanation of the ones I used. 
 
 Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of European style options contracts (and other derivatives).
 
@@ -42,7 +42,7 @@ This basic concept of estimating the future movements of an asset using these tr
 
 Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the CRR Binomial pricing model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
 
-Once again, I've only provided a simple, overaching explanation on the binomial model. Here are two good sources to read more:
+Once again, I've only provided a simple, overarching explanation on the binomial model. Here are two good sources to read more:
 
 -[Macroption](https://www.macroption.com/cox-ross-rubinstein-formulas/)
 -[NTU Paper](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)
@@ -101,7 +101,7 @@ Note: I'm performing my tests on a Windows machine. The CLI is cross platform, w
 
 #### Example 1: Automatically Pricing a Live Apple Call Option
 
-Lets price a live Apple call option. We'll use the following command:
+Let's price a live Apple call option. We'll use the following command:
 
 ```powershell
 options_pricer.exe auto -s AAPL -k 200 -n 10000
@@ -111,19 +111,19 @@ We do not need to specify the _--call_ flag, as the tool defaults to call option
 
 The tool then asks us to select an expiration date. Using the arrow and enter keys, lets select _2025-08-29_:
 
-![Auto Output 1](/autoOutput1.png){: width="1086" height="395" }
+![Auto Output 1](/autoOutput1.png){: width="1356" height="1009" }
 _Powershell Window of Example 1_
 
 After making our selection, we see the following output:
 
-![Auto Output 2](/autoOutput2.png){: width="1086" height="395" }
+![Auto Output 2](/autoOutput2.png){: width="1356" height="1009" }
 _Powershell Window of Example 1_
 
 Our selected option has been priced at $US16.83!
 
 #### Example 2: Manually Pricing a Theoretical Call Option
 
-Now, lets price the same option we did as above, but using the manual command to change the expiration date to 1 year from now. The command then becomes:
+Now, let's price the same option we did as above, but using the manual command to change the expiration date to 1 year from now. The command then becomes:
 
 ```powershell
 options_pricer.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 -n 10000
@@ -131,7 +131,7 @@ options_pricer.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 -n 10000
 
 This changes the output to:
 
-![Manual Output 1](/manualOutput1.png){: width="1086" height="395" }
+![Manual Output 1](/manualOutput1.png){: width="1356" height="1009" }
 _Powershell Window of Example 2_
 
 As we can see, the difference in expiration date has increased the price of the option to $36.64.
@@ -140,7 +140,7 @@ As we can see, the difference in expiration date has increased the price of the 
 
 ### Conclusion
 
-Altogether, I am rather satisifed with this project. However, I did not fulfill my original goal of including support for the Black-Scholes model. As such, in the future I plan to add the following features:
+Altogether, I am satisfied with this project. However, I did not fulfill my original goal of including support for the Black-Scholes model. As such, in the future I plan to add the following features:
 
 - Black-Scholes Model
 - Automatic and Manual European Options
