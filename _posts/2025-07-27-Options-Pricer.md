@@ -44,8 +44,8 @@ Currently, due to difficulty finding reliable data sources for European options 
 
 Once again, I've only provided a simple, overarching explanation on the binomial model. Here are two good sources to read more:
 
--[Macroption](https://www.macroption.com/cox-ross-rubinstein-formulas/)Article
--[NTU](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)Paper
+- [Macroption Article](https://www.macroption.com/cox-ross-rubinstein-formulas/)
+- [NTU Paper](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)
 
 <br />
 
