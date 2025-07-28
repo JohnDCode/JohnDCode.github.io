@@ -36,7 +36,9 @@ _Binomial Tree with 4 steps_
 
 In the above example, 4 steps are used to create a binomial tree. At the end of the tree, there are steps (n) + 1 nodes, leaving 5 distinct possibilities for the asset to reach after n steps. Each price is represented by S (the original price) multiplied by the respective degrees of applied up and down factors.
 
-This tree forms the basis for the Binomial model, which is utilized in this project to estimate the fair price of American options. Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing American options with the Binomial model. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
+This basic concept of estimating the future movements of an asset using these trees is the basis of the Binomial model for calculating American options values. 
+
+Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the Binomial model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
 
 
 
