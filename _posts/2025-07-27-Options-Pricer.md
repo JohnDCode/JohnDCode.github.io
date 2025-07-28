@@ -65,9 +65,13 @@ This command calculates the fair value of theoretical American options contracts
 
 #### Automatic (auto)
 
-|Argument       |Short/Long     |Description                                    |
-|:---           |:----          |:----                                          |
-|Symbol         |--symbol / -s  |The symbol to price                            |
+|Argument       |Short/Long     |Description                                                        |
+|:---           |:----          |:----                                                              |
+|Symbol         |--symbol / -s \<SYMBOL\>   |The symbol to price                                    |
+|Strike         |--strike / -k \<STRIKE\>   |The target strike price for the selected option        |
+|Steps          |--steps / -n \<STEPS\>     |The number of steps in the binomial tree               |
+|Call           |--call / -c                |Price a call option (default = true)                   |
+|Put            |--put / -p                 |Price a put option (default = false)                   |
 
 #### Manual
 
