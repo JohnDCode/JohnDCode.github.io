@@ -15,9 +15,9 @@ This past month, I set out to learn (according to Stack Overflow's developer sur
 
 ### Financial Options
 
-An "option", according to [Wikipedia](https://en.wikipedia.org/wiki/Option_(finance)) is "a contract which conveys to its owner, the holder, the right, but not the obligation, to buy or sell a specific quantity of an underlying asset or instrument at a specified strike price on or before a specified date, depending on the style of the option". 
+An "option", according to [Wikipedia](https://en.wikipedia.org/wiki/Option_(finance)), is "a contract which conveys to its owner, the holder, the right, but not the obligation, to buy or sell a specific quantity of an underlying asset or instrument at a specified strike price on or before a specified date, depending on the style of the option". 
 
-To those unfamiliar with the stock market, this may sound a bit daunting, so let me clarify with an example. As of writing this post, the symbol "AAPL" (Apple Inc) is trading for about US$214. I could purchase the stock for this price, or I could purchase an option that allows me to purchase this stock at a different price later. Just before the most recent market close, [a contract](https://finance.yahoo.com/quote/AAPL250801C00202500/) was purchased for AAPL. Let's examine this option. This option was a call option, meaning that by purchasing this contract, the owner now possesses the right to purchase the underlying asset (AAPL stock) at the strike price of the option. The strike price for this particular contract was US$202.50. This means that if the owner was to exercise this option, they could purchase the stock at the strike price of $202.50, regardless of what the current price of AAPL is. Now, let's suppose at the next market opening, the price of Apple Inc stock skyrockets to an incredible US$300. The owner of this contract would not have to pay the spot price of US$300 for the stock, but could exercise their option, and pay the strike price of US$202.50. 
+To those unfamiliar with the stock market, this may sound a bit confusing, so let me clarify with an example. As of writing this post, the symbol "AAPL" (Apple Inc) is trading for about US$214. I could purchase the stock for this price, or I could purchase an option that allows me to purchase this stock at a different price later. Just before the most recent market close, [an option](https://finance.yahoo.com/quote/AAPL250801C00202500/) was purchased for AAPL. Let's examine this option. This option was a call option, meaning that by purchasing this contract, the owner now possesses the right to purchase the underlying asset (AAPL stock) at the strike price of the option. The strike price for this particular contract was US$202.50. This means that if the owner were to exercise this option, they could purchase the stock at the strike price of $202.50, regardless of what the current price of AAPL is. Now, let's suppose at the next market opening, the price of Apple Inc stock skyrockets to an incredible US$300. The owner of this contract would not have to pay the spot price of US$300 for the stock, but could exercise their option and pay the strike price of US$202.50. 
 
 There are various types of options and additional parameters that factor into the purchase of these contracts, but this suffices as the basic concept. 
 
@@ -36,28 +36,40 @@ _Binomial Tree with 4 steps_
 
 In the above example, 4 steps are used to create a binomial tree. At the end of the tree, there are steps (n) + 1 nodes, leaving 5 distinct possibilities for the asset to reach after n steps. Each price is represented by S (the original price) multiplied by the respective degrees of applied up and down factors.
 
-This basic concept of estimating the future movements of an asset using these trees is the basis of the Binomial model for calculating American options values. 
+This basic concept of estimating the future movements of an asset using these trees is the basis of the Binomial model for calculating American and European options values. 
 
 Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the Binomial model**. However, the Binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
-
-
 
 <br />
 
 ### Rust CLI tool
 
-Here
+This CLI tool has 2 modes / commands:
 
+- Automatic
+- Manual
 
-#### Examples
+See below for specific examples and all arugments/flags for each command, but here is a basic overview of each:
 
-Here
+#### Automatic (auto)
+
+Both of these commands are used to price American options using the Binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all avilable option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the stike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, as well as other sourced data to calculate the fair value of that options contract.
+
+#### Manual
+
+This command calculates the fair value of theoretical American options contracts. Rather than pulling live data, each aspect of the option is provided manually (spot price, strike price, etc.). The command then uses the binomial model to price the theoretical option.
 
 <br />
 
-### Documentation
+### Arguments & Flags
 
-Here
+#### Automatic (auto)
+
+|Argument       |Short/Long     |Description                                    |
+|:---           |:----          |:----                                          |
+|Symbol         |--symbol / -s  |The symbol to price                            |
+
+#### Manual
 
 
 #### Auto
@@ -67,3 +79,7 @@ Here
 #### Manual
 
 Here
+
+### Examples
+
+##### Example 1: Automatically Pricing a Live Apple Call Option
