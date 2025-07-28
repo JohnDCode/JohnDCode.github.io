@@ -49,11 +49,11 @@ This CLI tool has 2 modes / commands:
 - Automatic
 - Manual
 
-See below for specific examples and all arugments/flags for each command, but here is a basic overview of each:
+See below for specific examples and all arguments/flags for each command, but here is a basic overview of each:
 
 #### Automatic (auto)
 
-Both of these commands are used to price American options using the Binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all avilable option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the stike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, as well as other sourced data to calculate the fair value of that options contract.
+Both of these commands are used to price American options using the Binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all available option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the strike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, relevant market data, and the risk free rate from U.S. treasury securities, to calculate the fair value of that options contract.
 
 #### Manual
 
@@ -65,8 +65,8 @@ This command calculates the fair value of theoretical American options contracts
 
 #### Automatic (auto)
 
-|Argument       |Short/Long     |Description                                                        |
-|:---           |:----          |:----                                                              |
+|Argument       |Short/Long                 |Description                                            |
+|:---           |:----                      |:----                                                  |
 |Symbol         |--symbol / -s \<SYMBOL\>   |The symbol to price                                    |
 |Strike         |--strike / -k \<STRIKE\>   |The target strike price for the selected option        |
 |Steps          |--steps / -n \<STEPS\>     |The number of steps in the binomial tree               |
@@ -75,15 +75,19 @@ This command calculates the fair value of theoretical American options contracts
 
 #### Manual
 
+|Argument       |Short/Long                         |Description                                            |
+|:---           |:----                              |:----                                                  |
+|Spot           |--spot / -s \<SPOT\>               |The spot price of the asset                            |
+|Strike         |--strike / -k \<STRIKE\>           |The strike price of the option                         |
+|Time           |--time / -t \<STRIKE\>             |The time (in years) to expiration of the option        |
+|Rate           |--rate / -t \<STRIKE\>             |The risk free interest rate                            | 
+|Volatility     |--volatility / -v \<VOLATILITY\>   |The implied volatility of the option                   |
+|Steps          |--steps / -n \<STEPS\>             |The number of steps in the binomial tree               |
+|Call           |--call / -c                        |Price a call option (default = true)                   |
+|Put            |--put / -p                         |Price a put option (default = false)                   |
 
-#### Auto
-
-Here
-
-#### Manual
-
-Here
+<br />
 
 ### Examples
 
-##### Example 1: Automatically Pricing a Live Apple Call Option
+#### Example 1: Automatically Pricing a Live Apple Call Option
