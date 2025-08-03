@@ -141,7 +141,7 @@ In this section, I am going to use the Platinum Semifinals from CP 16 as referen
 ![README 12](/windowsRM12.jpeg){: width="3024" height="4032" }
 ![README 13](/windowsRM13.jpeg){: width="3024" height="4032" }
 ![README 14](/windowsRM14.jpeg){: width="3024" height="4032" }
-_Windows README from CP-16 Platinum Semifinals_
+_Windows README from CP 16 Platinum Semifinals_
 
 The CP 16 Server scoring configuration file was also leaked during competition (due to error by organizers). A friend has posted that [here](https://github.com/Dudcom/Advanced-Windows-Hardening-Script-Automation/blob/main/Cyber%20Dump/Random%20Stuff%20form%20my%20team/cpxvi_sf_pg_h_server2022_ScoringResource.xml).
 
@@ -158,12 +158,12 @@ I have shared the forensics questions from CP 16 semifinals here:
 ![Server Forensic 1](/server1.jpeg){: width="3024" height="4032" }
 ![Server Forensic 2](/server2.jpeg){: width="3024" height="4032" }
 ![Server Forensic 3](/server3.jpeg){: width="3024" height="4032" }
-_Windows Server Forensics Questions from CP-16 Platinum Semifinals_
+_Windows Server Forensics Questions from CP 16 Platinum Semifinals_
 
 ![Windows Forensic 1](/windows1.jpeg){: width="3024" height="4032" }
 ![Windows Forensic 2](/windows2.jpeg){: width="3024" height="4032" }
 ![Windows Forensic 3](/windows3.jpeg){: width="3024" height="4032" }
-_Windows Forensics Questions from CP-16 Platinum Semifinals_
+_Windows Forensics Questions from CP 16 Platinum Semifinals_
 
 
 #### Application/O.S Updates
