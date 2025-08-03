@@ -86,7 +86,7 @@ I will be the first to admit that CyberPatriot does not provide realistic attack
 
 Now for what I personally learned. The first thing CyberPatriot taught me was how to use a virtual machine. I now use a variety of virtual machines for my various development environments (like the Linux Mint VM I use to manage this website). Other computer science skills I gained include scripting (Powershell, Bash, Python, even C#), application familiarity (how to handle various web servers, databases, mail servers, proxy servers, etc.), and some general knowledge (becoming comfortable with a terminal, networking fundamentals, SSH, etc.). I also learned quite a bit about Windows Security, as I became familiar with the Windows Kernel, The Windows Registry, Policy Management, Windows NTFS, etc. I also learned quite a bit about application security. In each round, there are pieces of critical business software running on each box. This could range from Apache web servers hosting company websites to Active Directory domain controllers managing the entire enterprise's forest. For each of these "critical services", competitors gained points for not just configuring the services, but also finding and remediating specific vulnerabilities within the preexisting configurations of each service. As such, I essentially learned how to pentest these various services as I was tasked with evaluating the security of each system and its services. 
 
-For the "CyberPatriot specific" knowledge, see the [My Windows Strategies](link) section.
+For the "CyberPatriot specific" knowledge, see the [My Windows Strategies](https://www.google.com/) section.
 
 
 #### 2. Working w/ a Team
