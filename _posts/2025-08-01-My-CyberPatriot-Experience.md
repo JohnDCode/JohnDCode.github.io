@@ -141,7 +141,7 @@ In this section, I am going to use the Platinum Semifinals from CP 16 as referen
 ![README 14](/windowsRM14.jpeg){: width="3024" height="4032" }
 _Windows README from CP-16 Platinum Semifinals_
 
-The CP 16 Server scoring configuration file was also leaked during competition (due to error by organizers). A friend has posted that [here](https://github.com/Dudcom/Advanced-Windows-Hardening-Script-Automation/blob/main/Cyber%20Dump/Random%20Stuff%20form%20my%20team/cpxvi_sf_pg_h_server2022_ScoringResource.xml_.
+The CP 16 Server scoring configuration file was also leaked during competition (due to error by organizers). A friend has posted that [here](https://github.com/Dudcom/Advanced-Windows-Hardening-Script-Automation/blob/main/Cyber%20Dump/Random%20Stuff%20form%20my%20team/cpxvi_sf_pg_h_server2022_ScoringResource.xml).
 
 #### Forensics Questions
 
