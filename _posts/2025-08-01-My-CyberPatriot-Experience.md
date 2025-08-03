@@ -117,15 +117,15 @@ This balance shaped who I am and my approach to future challenges.
 
 ### My CyberPatriot Windows Strategies
 
-Before I begin the deep dive, here is [my scripts](https://github.com/JohnDCode/St3wart) I used throughout the competition. Please ignore the weird Github commit history (trust the process). The structure of these scripts is absolutely awful but they worked quite well to get points. Also see all the other resources I used and discuss below so you can fully understand my process. Please understand that I did not create these resources with the intent to publish, so they are structured rather confusingly.
+Before I begin the deep dive, here are [my scripts](https://github.com/JohnDCode/St3wart) I used throughout the competition. Please ignore the weird Github commit history (trust the process). The structure of these scripts is absolutely awful but they worked quite well to get points. Also see all the other resources I used and discuss below so you can fully understand my process. Please understand that I did not create these resources with the intent to publish, so they are structured rather confusingly.
 
-Finally, I would like to share my approach to the Windows security aspect of CyberPatriot. I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their debrief-like release at the conclusion of each round. 
+I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their debrief-like release at the conclusion of each round. 
 
 I feel as though it is beyond the scope of this post to describe my entire Windows attack plan, so I have simply linked it [here](https://docs.google.com/document/d/1r-XIc-eUJ3rJI-f0oL4d53lkYbBWCEcIAyly_spQkyo/edit?usp=sharing). I apologize for any odd notes and it may be difficult to follow, but it was made for only my use. I have listed the categories here in the general order in which I tackle them in my attack plan. However, I will note that I do not approach each individual category at a time. I will cover parts of each category at the same time, revisit categories, etc. Once again, see the linked attack plan for more details. 
 
 #### README
 
-In this section, I am going to use the Platinum Semifinals from CP 16 as reference. As such, I have provided images of the README documents from these challenges. Its more of a dump from the photos I have but here:
+In this section, I am going to reference the typical README for a box. As such, I have provided images of the README documents from the CP 16 Platinum Semifinals Windows boxes. Its more of a dump from the photos I have but here:
 
 ![README 1](/windowsRM1.jpeg){: width="3024" height="4032" }
 ![README 2](/windowsRM2.jpeg){: width="3024" height="4032" }
@@ -141,7 +141,7 @@ In this section, I am going to use the Platinum Semifinals from CP 16 as referen
 ![README 12](/windowsRM12.jpeg){: width="3024" height="4032" }
 ![README 13](/windowsRM13.jpeg){: width="3024" height="4032" }
 ![README 14](/windowsRM14.jpeg){: width="3024" height="4032" }
-_Windows README from CP 16 Platinum Semifinals_
+_Windows README files from CP 16 Platinum Semifinals_
 
 The CP 16 Server scoring configuration file was also leaked during competition (due to error by organizers). A friend has posted that [here](https://github.com/Dudcom/Advanced-Windows-Hardening-Script-Automation/blob/main/Cyber%20Dump/Random%20Stuff%20form%20my%20team/cpxvi_sf_pg_h_server2022_ScoringResource.xml).
 
@@ -220,7 +220,7 @@ Oftentimes the image creators will manually corrupt services by changing the reg
 
 #### Defensive Countermeasures
 
-Once again, I am disappointed in the way CyberPatriot approaches this category. Oftentimes points are simply awarded for basic vulnerabilities, such as simple firewall settings, but occasionally niche defender or firewall settings. One example is enabling Memory Access Protection (CP 17 States). 
+Once again, I am disappointed in the way CyberPatriot approaches this category. Oftentimes points are simply awarded for basic vulnerabilities such as simple firewall settings, but occasionally niche defender or firewall settings are scored. One example is enabling Memory Access Protection (CP 17 States). 
 
 I simply imported Defender and Firewall configurations with a script. I also had automatic diff tools that identified anything that had been misconfigured by the image creators, which were oftentimes handy for forensics questions.
 
@@ -228,21 +228,23 @@ I simply imported Defender and Firewall configurations with a script. I also had
 
 You can see my attack plan for all the manual checks I did for this, but the best tool that I used for this was what I called my "FSB" script (File System Baseline). This script used C and Powershell to efficiently baseline and hash an entire NTFS, store it as a backup, and then could diff a new NTFS to the backup. The important aspect of this tool was that it saved file metadata to avoid false positives. Not all Windows file systems are identical, so it's easy to spot differences that may seem to be prohibited files or unwanted software but are simply system files. This was extremely effective. After fully developing this tool, I rarely missed vulnerabilities within the NTFS.
 
+Note, I do not believe the latest version of my FSB is available on the Git repo. I believe it may have been on my school G-Suite account (which is now deleted).
+
 #### Malware
 
-In addition to the FSB script I described above, I also used tools like sfc, MalwareBytes, etc. The malware on the systems was typically pretty clear. Executables titled things like "netcat.exe" in System32 were pretty easy to spot. My number 1 recommendation for this section is baselining.
+In addition to the FSB script I described above, I also used tools like sfc, MalwareBytes, etc. The malware on the systems were typically pretty obvious. Executables titled things like "netcat.exe" in System32 were pretty easy to spot. My number 1 recommendation for this section is baselining.
 
 #### Application Security
 
 This is where things get tricky. "Technically" the image creators can make the images serve any enterprise purpose. The images could be the company web server, the company database, the company domain controller, etc. My strategy was simply to cover my bases. In semifinals, it's likely that there will not be the same type of critical service on more than one box (i.e no more than one web server). So work with your teammates to make configurations for all critical services you can think of and then share them. 
 
-However, keep in mind that in the later rounds, there will most likely be some very niche critical services that you will be tasked to secure. Practicing creating critical service configurations and identifying common vulnerabilities will help you when you have to secure something you haven't seen before.
+However, keep in mind that in the later rounds, there will most likely be some very niche critical services that you will have to secure. Practicing creating critical service configurations and identifying common vulnerabilities will help you when you have to secure something you haven't seen before.
 
-Here are the [hardneing guides](https://docs.google.com/document/d/1z69uIWYs_orCiLqzFuUV3pqw2h9F7lJrOI_xt9gagSk/edit?usp=sharing) I prepared for my final round of competition.
+Here are the ["hardening guides"](https://docs.google.com/document/d/1z69uIWYs_orCiLqzFuUV3pqw2h9F7lJrOI_xt9gagSk/edit?usp=sharing) I prepared for my final round of competition.
 
 
 ### Thank You
 
-I wrote this post as a way to have some sort of closure on my 3 years in CyberPatriot. For those 3 years, I would like to thank the community and Matthias Lee, Lucas Bergman, and Luke Baker for their amazing help as teammates and friends. It's been a great ride
+I wrote this post as a way to have some sort of closure on my 3 years in CyberPatriot. For those 3 years, I would like to thank the community and Matthias Lee, Lucas Bergman, and Luke Baker for their amazing help as teammates and friends. It's been a great ride.
 
 - St3wart, Johnathan Abraham Lincoln St3wart Abe (Thanks Landon)
