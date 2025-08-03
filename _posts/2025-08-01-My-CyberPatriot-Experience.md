@@ -240,8 +240,6 @@ This is where things get tricky. "Technically" the image creators can make the i
 
 However, keep in mind that in the later rounds, there will most likely be some very niche critical services that you will have to secure. Practicing creating critical service configurations and identifying common vulnerabilities will help you when you have to secure something you haven't seen before.
 
-Here are the ["hardening guides"](https://docs.google.com/document/d/1z69uIWYs_orCiLqzFuUV3pqw2h9F7lJrOI_xt9gagSk/edit?usp=sharing) I prepared for my final round of competition.
-
 
 ### Thank You
 
