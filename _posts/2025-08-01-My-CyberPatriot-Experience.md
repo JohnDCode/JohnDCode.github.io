@@ -115,7 +115,9 @@ This balance shaped who I am and my approach to future challenges.
 
 <br />
 
-### My CyberPatriot Windows Strategies 
+### My CyberPatriot Windows Strategies
+
+Before I begin the deep dive, here is [my scripts](https://github.com/JohnDCode/St3wart) I used throughout the competition. Please ignore the weird Github commit history (trust the process). The structure of these scripts is absolutely awful but they worked quite well to get points. Also see all the other resources I used and discuss below so you can fully understand my process. Please understand that I did not create these resources with the intent to publish, so they are structured rather confusingly.
 
 Finally, I would like to share my approach to the Windows security aspect of CyberPatriot. I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their debrief-like release at the conclusion of each round. 
 
@@ -183,7 +185,7 @@ I scripted pretty much the entirety of this section but I'll list some specific 
 - Remove Unauth Admin Privs
 - Remove Unauth Users
 - Disable System Accounts
-- Setting Secure Pswds For Each Account
+- Setting Secure Pswds for Each Account
 - Removing Unauthorized Groups
 - Clearing Security Groups (Backup Operators, Device Owners, etc.)
 - Enabling Auth User Accounts
@@ -195,12 +197,52 @@ I scripted pretty much the entirety of this section but I'll list some specific 
 
 #### Account / Local / Uncat Policies
 
+I created a [video](https://drive.google.com/file/d/1Sl-aMEuGUzrtcZi2QMhuVwlt5QjpeJr-/view?usp=sharing) a few years ago of me describing this process, but I'll briefly describe it here.
+
+To remediate policy vulnerabilities, I created GPO backups of machines in several states, the two most important of which being:
+
+- A baseline system
+- A completely secured system (secured in accordance with CIS benchmarks and STIGs)
+
+Then I would use the tools from [Microsoft's Security Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319) to compare the state of the system to those policy backups and import various GPOs.
+
+For miscellaneously uncat settings, that requires a bit more manual combing. There are basic things I outline in my attack plan such as remote management, file shares, etc. but manually searching for uncat vulnerabilities was a luxury I oftentimes did not have time for.
+
 #### Service Auditing
+
+For service auditing as CyberPatriot scores it, you really only need to scratch the surface. You can simply look through services.msc and most likely identify all of the large vulnerabilities. Here is another list of the common ones:
+
+- Startup Type of critical/prohibited Services
+- State of critical/prohibited Services
+- Recovery Actions for critical/prohibited Services
+
+Oftentimes the image creators will manually corrupt services by changing the registry keys for each corresponding service in ```Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services``` so I created a script to diff these keys to a hardened system and then automatically imported any keys/values that needed remediation. You can even manually diff hardened to system (competition system) keys with tools like [Beyond Compare](https://www.scootersoftware.com/).
 
 #### Defensive Countermeasures
 
+Once again, I am disappointed in the way CyberPatriot approaches this category. Oftentimes points are simply awarded for basic vulnerabilities, such as simple firewall settings, but occasionally niche defender or firewall settings. One example is enabling Memory Access Protection (CP 17 States). 
+
+I simply imported Defender and Firewall configurations with a script. I also had automatic diff tools that identified anything that had been misconfigured by the image creators, which were oftentimes handy for forensics questions.
+
 #### Prohibited Files / Unwanted Software
+
+You can see my attack plan for all the manual checks I did for this, but the best tool that I used for this was what I called my "FSB" script (File System Baseline). This script used C and Powershell to efficiently baseline and hash an entire NTFS, store it as a backup, and then could diff a new NTFS to the backup. The important aspect of this tool was that it saved file metadata to avoid false positives. Not all Windows file systems are identical, so it's easy to spot differences that may seem to be prohibited files or unwanted software but are simply system files. This was extremely effective. After fully developing this tool, I rarely missed vulnerabilities within the NTFS.
 
 #### Malware
 
+In addition to the FSB script I described above, I also used tools like sfc, MalwareBytes, etc. The malware on the systems was typically pretty clear. Executables titled things like "netcat.exe" in System32 were pretty easy to spot. My number 1 recommendation for this section is baselining.
+
 #### Application Security
+
+This is where things get tricky. "Technically" the image creators can make the images serve any enterprise purpose. The images could be the company web server, the company database, the company domain controller, etc. My strategy was simply to cover my bases. In semifinals, it's likely that there will not be the same type of critical service on more than one box (i.e no more than one web server). So work with your teammates to make configurations for all critical services you can think of and then share them. 
+
+However, keep in mind that in the later rounds, there will most likely be some very niche critical services that you will be tasked to secure. Practicing creating critical service configurations and identifying common vulnerabilities will help you when you have to secure something you haven't seen before.
+
+Here are the [hardneing guides](https://docs.google.com/document/d/1z69uIWYs_orCiLqzFuUV3pqw2h9F7lJrOI_xt9gagSk/edit?usp=sharing) I prepared for my final round of competition.
+
+
+### Thank You
+
+I wrote this post as a way to have some sort of closure on my 3 years in CyberPatriot. For those 3 years, I would like to thank the community and Matthias Lee, Lucas Bergman, and Luke Baker for their amazing help as teammates and friends. It's been a great ride
+
+- St3wart, Johnathan Abraham Lincoln St3wart Abe (Thanks Landon)
