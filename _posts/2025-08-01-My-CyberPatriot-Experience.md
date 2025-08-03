@@ -86,12 +86,12 @@ I will be the first to admit that CyberPatriot does not provide realistic attack
 
 Now for what I personally learned. The first thing CyberPatriot taught me was how to use a virtual machine. I now use a variety of virtual machines for my various development environments (like the Linux Mint VM I use to manage this website). Other computer science skills I gained include scripting (Powershell, Bash, Python, even C#), application familiarity (how to handle various web servers, databases, mail servers, proxy servers, etc.), and some general knowledge (becoming comfortable with a terminal, networking fundamentals, SSH, etc.). I also learned quite a bit about Windows Security, as I became familiar with the Windows Kernel, The Windows Registry, Policy Management, Windows NTFS, etc. I also learned quite a bit about application security. In each round, there are pieces of critical business software running on each box. This could range from Apache web servers hosting company websites to Active Directory domain controllers managing the entire enterprise's forest. For each of these "critical services", competitors gained points for not just configuring the services, but also finding and remediating specific vulnerabilities within the preexisting configurations of each service. As such, I essentially learned how to pentest these various services as I was tasked with evaluating the security of each system and its services. 
 
-For the "CyberPatriot specific" knowledge, see the [My Windows Strategies](https://www.google.com/) section.
+For the "CyberPatriot specific" knowledge, see the [My Windows Strategies](https://www.johndcode.com/posts/My-CyberPatriot-Experience/#my-cyberpatriot-windows-strategies) section.
 
 
 #### 2. Working w/ a Team
 
-In CyberPatriot, there are 6 members on a team. This includes 5 main competitors, and one "sub". The sub is able to enter the competition in replacement of another competitor at any point during the 4 (previously 6) hour competition window. In the Platinum Semifinals round, there are typically 8 challenges:
+In CyberPatriot, there are 6 members on a team. This includes 5 main competitors and one "sub". The sub is able to enter the competition in replacement of another competitor at any point during the 4 (previously 6) hour competition window. In the Platinum Semifinals round, there are typically 8 challenges:
 
 - 4 Boxes
 - 2 Cisco Networking Challenges
@@ -101,7 +101,7 @@ This means that 5 competitors have 4 hours to complete 8 challenges. This is qui
 
 Now, in a perfect world, students could have Windows specialists, Linux specialists, networking specialists, etc. to perform the various challenges. However, the challenge I face each year and the challenge competitors across the nation face, is that recruiting motivated kids from your school to participate in CyberPatriot is difficult. Coming from a small Christian school with only 300 kids in my grade, this problem worsened. In my final year, this problem was the most apparent, as myself and a freshman student were tasked with completing essentially all 8 challenges. As a result, we could not adequately tackle each challenge. This time crunch became so stressful that we became sloppy, making a critical mistake that led to our team suffering a significant penalty during semifinals. Despite this enormous challenge, we placed 19th in the entire competition (VERY close to nationals, regardless of all those obstacles) and 7th in Windows security (as shown in the table above).
 
-As such, these challenges gave me the absolute best opportunity to learn how to work in a team. In middle and high school, I played various team sports (basketball, football, lacrosse). But I learned more about how to work within a group during 3 years of CyberPatriot than I did in 9 years of playing team sports. In basketball, a single player can take the game winning shot. But in CyberPatriot, 1 competitor can not single handedly control 5 keyboards. It was up to myself and my teammates to delegate the challenges among ourselves and how to, as a team, prepare for these challenges. Once the challenges for the new season were posted, our team would spend hours deciding how to best tackle semifinals for the year. We then took on a "compete like its semifinals" mantra, applying such a strategy to each round. Even if there were less challenges than there would be during semifinals, we would create our own challenges to fill the gaps, truly treating every round like semifinals. This comradery of collectively strategizing to work towards our goal taught me quite a lot. This level of extreme teamwork taught me so much about working in a group both on competition day itself, but in the countless practices and late nights leading up to each. I collaborated on countless service configurations, scripts, practice challenges, and the aftermentioned strategies almost every day for each of those 3 seasons.
+As such, these challenges gave me the absolute best opportunity to learn how to work in a team. In middle and high school, I played various team sports (basketball, football, lacrosse). But I learned more about how to work within a group during 3 years of CyberPatriot than I did in 9 years of playing team sports. In basketball, a single player can take the game winning shot. But in CyberPatriot, 1 competitor can not single-handedly control 5 keyboards. It was up to myself and my teammates to delegate the challenges among ourselves and how to, as a team, prepare for these challenges. Once the challenges for the new season were posted, our team would spend hours deciding how to best tackle semifinals for the year. We then took on a "compete like its semifinals" mantra, applying such a strategy to each round. Even if there were less challenges than there would be during semifinals, we would create our own challenges to fill the gaps, truly treating every round like semifinals. This comradery of collectively strategizing to work towards our goal taught me quite a lot. This level of extreme teamwork taught me so much about working in a group both on competition day itself, but in the countless practices and late nights leading up to each. I collaborated on countless service configurations, scripts, practice challenges, and the aftermentioned strategies almost every day for each of those 3 seasons.
 
 This teaches students how to develop and work in a team environment that mirrors a realistic CS job environment. 
 
@@ -111,10 +111,96 @@ I consider myself to be a rather goal oriented person. In school, I had particul
 
 I believe the balance between enjoying the present and focusing on goals is imperative to the success of students. CyberPatriot strengthened me in this sense. The structure of the competition is linear. The first two rounds yield scores that divide teams into "tiers" (Platinum, Gold, Silver). The third round determines state awards and advancement to semifinals. Semifinals then determine advancement to nationals. There are steps to the competition. This allowed me to refine my goal oriented mindset. At each step in the competition I was focusing on the current and overarching goal. I was also attempting to apply and test my Windows skills and strategies, allowing me to learn at the moment. 
 
-This balance shaped who I am and my approach to new challenges. 
+This balance shaped who I am and my approach to future challenges. 
 
 <br />
 
 ### My CyberPatriot Windows Strategies 
 
-Finally, I would like to share my approach to the Windows aspect of CyberPatriot. I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their category release at the conclusion of each round. 
+Finally, I would like to share my approach to the Windows security aspect of CyberPatriot. I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their debrief-like release at the conclusion of each round. 
+
+I feel as though it is beyond the scope of this post to describe my entire Windows attack plan, so I have simply linked it [here](https://docs.google.com/document/d/1r-XIc-eUJ3rJI-f0oL4d53lkYbBWCEcIAyly_spQkyo/edit?usp=sharing). I apologize for any odd notes and it may be difficult to follow, but it was made for only my use. I have listed the categories here in the general order in which I tackle them in my attack plan. However, I will note that I do not approach each individual category at a time. I will cover parts of each category at the same time, revisit categories, etc. Once again, see the linked attack plan for more details. 
+
+#### README
+
+In this section, I am going to use the Platinum Semifinals from CP 16 as reference. As such, I have provided images of the README documents from these challenges. Its more of a dump from the photos I have but here:
+
+![README 1](/windowsRM1.jpeg){: width="3024" height="4032" }
+![README 2](/windowsRM2.jpeg){: width="3024" height="4032" }
+![README 3](/windowsRM3.jpeg){: width="3024" height="4032" }
+![README 4](/windowsRM4.jpeg){: width="3024" height="4032" }
+![README 5](/windowsRM5.jpeg){: width="3024" height="4032" }
+![README 6](/windowsRM6.jpeg){: width="3024" height="4032" }
+![README 7](/windowsRM7.jpeg){: width="3024" height="4032" }
+![README 8](/windowsRM8.jpeg){: width="3024" height="4032" }
+![README 9](/windowsRM9.jpeg){: width="3024" height="4032" }
+![README 10](/windowsRM10.jpeg){: width="3024" height="4032" }
+![README 11](/windowsRM11.jpeg){: width="3024" height="4032" }
+![README 12](/windowsRM12.jpeg){: width="3024" height="4032" }
+![README 13](/windowsRM13.jpeg){: width="3024" height="4032" }
+![README 14](/windowsRM14.jpeg){: width="3024" height="4032" }
+_Windows README from CP-16 Platinum Semifinals_
+
+The CP 16 Server scoring configuration file was also leaked during competition (due to error by organizers). A friend has posted that [here](https://github.com/Dudcom/Advanced-Windows-Hardening-Script-Automation/blob/main/Cyber%20Dump/Random%20Stuff%20form%20my%20team/cpxvi_sf_pg_h_server2022_ScoringResource.xml_.
+
+#### Forensics Questions
+
+Forensics Questions are one of the more frustrating parts of the competition. I would love for CyberPatriot to make these more realistic but alas, I have been rather unsatisfied with them. 
+
+In my attack plan, you will see me mention "unrecoverable" and "recoverable" forensics. I use these terms because some forensics can be completed later in the attack plan while some require immediate redress. For example, let's say a forensics question asks competitors to identify a malicious firewall rule (a real example of a question in states CP 16). If I proceed with the attack plan, where several of my scripts may remediate this vulnerability, I would be unable to answer the question because the firewall rule would have been removed. As such, I must identify the answer to the question, gain points for the forensics question, and then remediate the underlying vulnerability. This is an example of an unrecoverable forensics question. On the other hand, let's say a forensics question gives us some pcap file that was recently captured and requires further investigation (another real example). As long as we backup the pcap file, we can always examine this question later. This is recoverable.
+
+The goal of each box, for me, was to get the maximum number of points in the shortest amount of time. Unrecoverable forensics questions require immediate attention for the reasons I outlined above, but I would only attempt forensics questions I believed I could solve rather quickly. Especially in the semifinals, there will be difficult questions. These forensics questions always yield decent points so it's worth the extra effort, but again, you want to score the most amount of points as quickly as possible, so maintain a balance.
+
+I have shared the forensics questions from CP 16 semifinals here:
+
+![Server Forensic 1](/server1.jpeg){: width="3024" height="4032" }
+![Server Forensic 2](/server2.jpeg){: width="3024" height="4032" }
+![Server Forensic 3](/server3.jpeg){: width="3024" height="4032" }
+_Windows Server Forensics Questions from CP-16 Platinum Semifinals_
+
+![Windows Forensic 1](/windows1.jpeg){: width="3024" height="4032" }
+![Windows Forensic 2](/windows2.jpeg){: width="3024" height="4032" }
+![Windows Forensic 3](/windows3.jpeg){: width="3024" height="4032" }
+_Windows Forensics Questions from CP-16 Platinum Semifinals_
+
+
+#### Application/O.S Updates
+
+I'll keep this short. There are only 3 items I believe are worth mentioning here:
+
+1. I have seen the image creators attempt to spoof the version of the software installed. My strategy is just to backup all configuration files, uninstall the software, and then reinstall it. However, for apps like browsers, clear the configuration files as well. If there was anything maliciously configured, a clean install will take care of it, and the competition scenario will almost never outline anything that requires specific browser configuration.
+
+2. Windows OS updates can take a long time. There are some ways to circumvent this. Downloading the updates to a USB stick beforehand and then installing during the competition or using the Windows Update Powershell module (PSWindowsUpdate) can speed things up quite a bit. 
+
+3. As we can see in the configuration file I've posted above, the scoring engine simply chooses a few random system files and checks the version. If the version is up to date, the update check passes. You could experiment with manually changing the version of system executables, but I never did.
+
+#### User Auditing
+
+This one is also pretty basic. The most complex thing I've ever seen in an image is the image creators creating a user titled "." and then hiding the account by manually changing the permissions of the user's SAM registry key. As such, after my normal auditing, I usually just counted the number of SAM keys and then the number of users in the README (+ system accounts) and made sure they matched. 
+
+I scripted pretty much the entirety of this section but I'll list some specific aspects of user auditing here:
+
+- Remove Unauth Admin Privs
+- Remove Unauth Users
+- Disable System Accounts
+- Setting Secure Pswds For Each Account
+- Removing Unauthorized Groups
+- Clearing Security Groups (Backup Operators, Device Owners, etc.)
+- Enabling Auth User Accounts
+- Ensuring Auth User Accounts Not Locked Out
+- Ensuring Auth User Accounts Passwords Expire by Default
+- Ensuring Auth Users Can Change Pswd
+- DC User Vulns (Perms on Computer Accounts, DC User Properties, just look in dsa.msc)
+
+
+#### Account / Local / Uncat Policies
+
+#### Service Auditing
+
+#### Defensive Countermeasures
+
+#### Prohibited Files / Unwanted Software
+
+#### Malware
+
+#### Application Security
