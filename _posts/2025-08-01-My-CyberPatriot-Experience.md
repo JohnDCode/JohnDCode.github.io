@@ -21,7 +21,7 @@ First, I would like to establish my credibility to speak on the competition.
 
 For anyone unfamiliar with the CyberPatriot online community, I'm known online as St3wart. I come from the team '1984'. 
 
-I was originally introduced to CyberPatriot during my sophomore year of high school (CP season 15, 2022-2023), and competed through my senior year (CP season 17, 2024-2025). I specialized in Windows security and tackled the Windows boxes for each of the 12 virtual rounds I competed in. In each of my 3 seasons, my team qualified for the Platinum Open division and won the Nevada State Championship. I also made a single trip to the national finals in Washington D.C (CP 15).
+I was originally introduced to CyberPatriot during my sophomore year of high school (CP season 15, 2022-2023), and competed through my senior year (CP season 17, 2024-2025). I specialized in Windows security and tackled the Windows boxes for each of the 12 virtual rounds I competed in. In each of my 3 seasons, my team qualified for the Platinum Open division and won the Nevada State Championship. I also made a single trip to the national finals in Washington D.C.
 
 In my final round of competition, CP 17 Platinum Semifinals, my cumulative Windows scores placed 7th in the competition. I am extremely proud of this statistic, as I was tasked with securing both the Windows 11 box and the Windows Server 22 box while also assisting in other challenges. This is a task typically dedicated to 2-3 competitors, rather than a single individual.
 
@@ -41,7 +41,7 @@ In my final round of competition, CP 17 Platinum Semifinals, my cumulative Windo
 
 #### Obstacles
 
-I competed in CyberPatriot via my high school, Faith Lutheran High School (Las Vegas, NV). Competing with this particular high school was extremely difficult. In my first 2 years of competing, our coach was not employed full time by the school and only came to the school for CyberPatriot meetings. In my final year, we had a science teacher act as a temporary coach. Our team oftentimes had difficulty receiving competition information or basic resources from our coaches. Our club and accomplishments were also never recognized by the school or administration. The program was also extremely small, with there being less than 10 kids enrolled in the program during my final year. We had difficulty just getting 5 kids with basic technical skills to fill the roster for a single team. Nonetheless, the goal each year was the same, to make it to the national finals in D.C. However, my unique combination of small program and large goals led to a rather interesting three year journey.
+I competed in CyberPatriot via my high school, Faith Lutheran High School (Las Vegas, NV). Competing with this particular high school was extremely difficult. In my first 2 years of competing, our coach was not employed full time by the school and only came to the school for CyberPatriot meetings. In my final year, we had a science teacher act as a temporary coach. Our team oftentimes had difficulty receiving competition information or basic resources from our coaches. Our club and accomplishments were also never recognized by the school or administration. The program was small, with there being less than 10 kids enrolled in the program during my final year. We had difficulty just getting 5 kids with basic technical skills to fill the roster for a single team. Nonetheless, the goal each year was the same, to make it to the national finals in D.C. However, my unique combination of small program and large goals led to a rather interesting three year journey.
 
 
 #### CP 15
@@ -78,18 +78,43 @@ I would like to share three main points about my growth and learning from this c
 
 #### 1. Technical Skills & Experience
 
-Here
+As a student who went from not knowing what a VM was to defending against professional red team attacks in Washington D.C in the span of one year, I can confirm with absolute certainty that CyberPatriot is a fantastic way to learn valuable technical skills. 
+
+This is a common point of debate within the competition with competitors arguing that CyberPatriot doesn't teach real world skills. I believe this is argued because these competitors enter the competition with significant preexisting experience in computer science and maybe even cybersecurity. As such, they have little to gain from CyberPatriot.
+
+I will be the first to admit that CyberPatriot does not provide realistic attack scenarios. The idea is that as competitors, we are new technical advisors brought on to evaluate a compromised system. However, I do not believe that searching for arbitrary "prohibited media files" in random system directories constitutes a realistic environment. However, this does not mean that CyberPatriot does not give competitors the opportunity to learn about cybersecurity. While the scenarios they provide may not be entirely accurate, being tasked with managing the policies, users, software, and file systems of enterprise machines is certainly an applicable job skill. 
+
+Now for what I personally learned. The first thing CyberPatriot taught me was how to use a virtual machine. I now use a variety of virtual machines for my various development environments (like the Linux Mint VM I use to manage this website). Other computer science skills I gained include scripting (Powershell, Bash, Python, even C#), application familiarity (how to handle various web servers, databases, mail servers, proxy servers, etc.), and some general knowledge (becoming comfortable with a terminal, networking fundamentals, SSH, etc.). I also learned quite a bit about Windows Security, as I became familiar with the Windows Kernel, The Windows Registry, Policy Management, Windows NTFS, etc. I also learned quite a bit about application security. In each round, there are pieces of critical business software running on each box. This could range from Apache web servers hosting company websites to Active Directory domain controllers managing the entire enterprise's forest. For each of these "critical services", competitors gained points for not just configuring the services, but also finding and remediating specific vulnerabilities within the preexisting configurations of each service. As such, I essentially learned how to pentest these various services as I was tasked with evaluating the security of each system and its services. 
+
+For the "CyberPatriot specific" knowledge, see the [My Windows Strategies](link) section.
+
 
 #### 2. Working w/ a Team
 
-Here
+In CyberPatriot, there are 6 members on a team. This includes 5 main competitors, and one "sub". The sub is able to enter the competition in replacement of another competitor at any point during the 4 (previously 6) hour competition window. In the Platinum Semifinals round, there are typically 8 challenges:
+
+- 4 Boxes
+- 2 Cisco Networking Challenges
+- 2 Misc Challenges (Web/Boeing)
+
+This means that 5 competitors have 4 hours to complete 8 challenges. This is quite difficult. It is up to the students to delegate manpower to most effectively score points throughout the 4 hour competition window. Thus, this introduces a particular strategy aspect that is imperative to being successful. 
+
+Now, in a perfect world, students could have Windows specialists, Linux specialists, networking specialists, etc. to perform the various challenges. However, the challenge I face each year and the challenge competitors across the nation face, is that recruiting motivated kids from your school to participate in CyberPatriot is difficult. Coming from a small Christian school with only 300 kids in my grade, this problem worsened. In my final year, this problem was the most apparent, as myself and a freshman student were tasked with completing essentially all 8 challenges. As a result, we could not adequately tackle each challenge. This time crunch became so stressful that we became sloppy, making a critical mistake that led to our team suffering a significant penalty during semifinals. Despite this enormous challenge, we placed 19th in the entire competition (VERY close to nationals, regardless of all those obstacles) and 7th in Windows security (as shown in the table above).
+
+As such, these challenges gave me the absolute best opportunity to learn how to work in a team. In middle and high school, I played various team sports (basketball, football, lacrosse). But I learned more about how to work within a group during 3 years of CyberPatriot than I did in 9 years of playing team sports. In basketball, a single player can take the game winning shot. But in CyberPatriot, 1 competitor can not single handedly control 5 keyboards. It was up to myself and my teammates to delegate the challenges among ourselves and how to, as a team, prepare for these challenges. Once the challenges for the new season were posted, our team would spend hours deciding how to best tackle semifinals for the year. We then took on a "compete like its semifinals" mantra, applying such a strategy to each round. Even if there were less challenges than there would be during semifinals, we would create our own challenges to fill the gaps, truly treating every round like semifinals. This comradery of collectively strategizing to work towards our goal taught me quite a lot. This level of extreme teamwork taught me so much about working in a group both on competition day itself, but in the countless practices and late nights leading up to each. I collaborated on countless service configurations, scripts, practice challenges, and the aftermentioned strategies almost every day for each of those 3 seasons.
+
+This teaches students how to develop and work in a team environment that mirrors a realistic CS job environment. 
 
 #### 3. How to be Goal Oriented
 
-Here
+I consider myself to be a rather goal oriented person. In school, I had particular test scores I wanted to achieve, particular classes I wanted to take, etc. However, these were all in pursuit of a higher, overarching goal, which was to learn and to prepare for college. This hierarchical goal mindset was first introduced to me when I played football. I saw each workout, each practice, each game as me working towards the end goal of a championship. 
+
+I believe the balance between enjoying the present and focusing on goals is imperative to the success of students. CyberPatriot strengthened me in this sense. The structure of the competition is linear. The first two rounds yield scores that divide teams into "tiers" (Platinum, Gold, Silver). The third round determines state awards and advancement to semifinals. Semifinals then determine advancement to nationals. There are steps to the competition. This allowed me to refine my goal oriented mindset. At each step in the competition I was focusing on the current and overarching goal. I was also attempting to apply and test my Windows skills and strategies, allowing me to learn at the moment. 
+
+This balance shaped who I am and my approach to new challenges. 
 
 <br />
 
-### My Windows Strategies 
+### My CyberPatriot Windows Strategies 
 
-Here
+Finally, I would like to share my approach to the Windows aspect of CyberPatriot. I have broken down this explanation into the _vulnerability categories_ that the CyberPatriot office references in their category release at the conclusion of each round. 
