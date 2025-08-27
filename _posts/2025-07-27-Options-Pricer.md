@@ -1,6 +1,6 @@
 ---
 title: CLI Options Pricer
-description: An explanation and demonstration of my Rust CLI tool used to price financial options
+description: My cross-platform Rust CLI tool used to price financial options
 author: John
 date: 2025-07-27 16:00:00 +0800
 categories: [Projects, Finance]
@@ -103,7 +103,7 @@ Note: I'm performing my tests on a Windows machine. The CLI is cross platform, w
 
 Let's price a live Apple call option. We'll use the following command:
 
-```powershell
+```console
 options_pricer.exe auto -s AAPL -k 200 -n 10000
 ```
 
@@ -125,7 +125,7 @@ Our selected option has been priced at $US16.83!
 
 Now, let's price the same option we did as above, but using the manual command to change the expiration date to 1 year from now. The command then becomes:
 
-```powershell
+```console
 options_pricer.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 -n 10000
 ```
 
@@ -148,4 +148,4 @@ Altogether, I am satisfied with this project. However, I did not fulfill my orig
 
 Despite failure on the European support front, I still learned quite a bit. 
 
-Once again, the compiled binaries can be found on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
+Once again, you can try it for yourself using the compiled binaries on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
