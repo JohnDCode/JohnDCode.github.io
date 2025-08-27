@@ -89,12 +89,9 @@ This demonstrates the most basic behavior of the engine, simply performing a bac
 To demonstrate the core C++ engine, I have designed 2 trading strategies that I will backtest using the engine. I have implemented the engine in the same manner as the above technique. Additionally, each portfolio will begin with $5,000 (USD).
 
 
-- Note, I make use of the ```collections``` and ```numpy``` packages in these examples, which were not listed on the original list of package dependencies.
-
-
 #### Strategy 1: Pairs Trading
 
-Oftentimes there exists pairs of assets that are historically correlated. Pairs trading involves measuring when two correlated assets move away from one another, and betting that the assets will eventually collapse back towards one another. To measure this difference in correlated assets, Bollinger Bands are used to detect if one of the assets is overbought or oversold relative to recent history. If one asset drifts away from a mean value, the trader bets on the two assets converging together once again. Here, I have implemented this strategy using ```SPY``` and ```QQQ```. This backtest was performed over the course of only 1 year (2024-07-15 - 2025-07-15) with a bar data size of 60 minutes.
+Oftentimes there exists pairs of assets that are historically correlated. Pairs trading involves measuring when two correlated assets move away from one another and betting that the assets will eventually collapse back towards one another. To measure this difference in correlated assets, Bollinger Bands are used to detect if one of the assets is overbought or oversold relative to recent history. If one asset drifts away from a mean value, the trader bets on the two assets converging together once again. Here, I have implemented this strategy using ```SPY``` and ```QQQ```. This backtest was performed over the course of only 1 year (2024-07-15 - 2025-07-15) with a bar data size of 60 minutes.
 
 ```python
 class MyStrategy(backtest_python.Strategy):
@@ -174,7 +171,7 @@ class MyStrategy(backtest_python.Strategy):
 =================== Strategy Performance Summary ===================
 
 Starting Cash:        $5,000
-Final Cash:           $114,114
+Final Cash:           $114.22
 Final Equity:         $7,911.11
 
 ====================================================================
@@ -182,7 +179,6 @@ Final Equity:         $7,911.11
 
 Despite the backtest only being over the course of 1 year, this strategy was profitable.
 
-- Note: The engine does not automatically close all positions upon termination of the backtest. As such, this strategy had a short position in SPY at the end of the test, leading to the abnormally high cash level in the portfolio.
 
 #### Strategy 2: Momentum Trading
 
@@ -242,8 +238,6 @@ Final Equity:         $5,374.12
 
 ====================================================================
 ```
-
-Once again, despite running the test on a relatively short time frame, this strategy was also profitable. Here, all positions were closed at the end of the test, and there is a (very minute) profit.
 
 <br />
 
