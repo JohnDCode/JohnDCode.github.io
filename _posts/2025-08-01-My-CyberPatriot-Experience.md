@@ -1,6 +1,6 @@
 ---
 title: CyberPatriot
-description: A reflection on my experience and gained knowledge from 3 years of competing in the United States AFA blue teaming competition, CyberPatriot. 
+description: A reflection on my experience and gained knowledge from 3 years of competing in the United States AFA blue teaming competition, CyberPatriot
 author: John
 date: 2025-08-01 01:00:00 +0800
 categories: [Extracurriculars]
