@@ -49,12 +49,7 @@ In the above example, 4 steps are used to create a binomial tree. At the end of 
 
 This basic concept of estimating the future movements of an asset using these trees is the basis of the binomial model for calculating American and European options values. 
 
-Currently, due to difficulty finding reliable data sources for European options (such as the options chain), I have limited the functionality of this tool to pricing **American options with the CRR Binomial Pricing Model**. However, the binomial model has been proven to converge to the Black-Scholes model as the number of steps increases.
-
-Once again, I've only provided a simple, overarching explanation on the binomial model. Here are two good sources to read more:
-
-- [Macroption Article](https://www.macroption.com/cox-ross-rubinstein-formulas/)
-- [NTU Paper](https://homepage.ntu.edu.tw/~jryanwang/courses/Financial%20Computation%20or%20Financial%20Engineering%20(graduate%20level)/FE_Ch04%20Binomial%20Tree%20Model.pdf)
+Currently, due to difficulty finding reliable, live data sources for European options, I have limited the functionality of this tool to automatically and manually pricing **American options with the CRR Binomial Pricing Model** and manually pricing **European options with the Black-Scholes and CRR Binomial Models**.
 
 <br />
 
