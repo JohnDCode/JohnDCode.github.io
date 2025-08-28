@@ -123,15 +123,15 @@ We do not need to specify the _--call_ flag, as the tool defaults to call option
 
 The tool then asks us to select an expiration date. Using the arrow and enter keys, lets select _2025-08-29_:
 
-![Auto Output 1](/autoOutput1.png){: width="1356" height="1009" }
+![Auto Output 1](/autoOutput1.png){: width="`1226" height="996" }
 _Powershell Window of Example 1_
 
 After making our selection, we see the following output:
 
-![Auto Output 2](/autoOutput2.png){: width="1356" height="1009" }
+![Auto Output 2](/autoOutput2.png){: width="1226" height="996" }
 _Powershell Window of Example 1_
 
-Our selected option has been priced at $US16.83!
+Our selected option has been priced at $US31.29!
 
 #### Example 2: Manually Pricing a European Theoretical Call Option
 
@@ -143,7 +143,7 @@ rustquant.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 --european --gree
 
 This changes the output to:
 
-![Manual Output 1](/manualOutput1.png){: width="1356" height="1009" }
+![Manual Output 1](/manualOutput1.png){: width="1226" height="996" }
 _Powershell Window of Example 2_
 
 
