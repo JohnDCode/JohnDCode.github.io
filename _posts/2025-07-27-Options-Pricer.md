@@ -1,5 +1,5 @@
 ---
-title: CLI Options Pricer
+title: RustQuant
 description: My cross-platform Rust CLI tool used to price financial options
 author: John
 date: 2025-07-27 16:00:00 +0800
@@ -8,8 +8,17 @@ tags: [Projects, Rust]
 media_subpath: '/assets/2025-07-27-Options-Pricer'
 ---
 
+#### Latest Version
 
-This past month, I set out to learn (according to Stack Overflow's developer survey) the "most loved" programming language, Rust. This proved to be a rather daunting task, but after reading up on the language and then playing around with its various unique features, I decided to develop a project I had originally envisioned a few months prior. I created a cross-platform [CLI tool](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish) that allows users to instantly calculate fair prices for live financial options contracts. 
+Version 0.4 of RustQuant introduces:
+
+- Manual pricing for European options (automatic pricing to come soon)
+- Calculation of Greeks
+
+
+This past month, I set out to learn (according to Stack Overflow's developer survey) the "most loved" programming language, Rust. This proved to be a rather daunting task, but after reading up on the language and then playing around with its various unique features, I decided to develop a project I had originally envisioned a few months prior. I created a cross-platform CLI tool that allows users to instantly calculate fair prices for live financial options contracts. 
+
+The [source](https://github.com/JohnDCode/RustQuant) and [compiled binaries](https://github.com/JohnDCode/RustQuant-Publish) for this project can be found on my [GitHub](https://github.com/JohnDCode).
 
 
 
@@ -27,7 +36,7 @@ There are various types of options and additional parameters that factor into th
 
 The purpose of this post is to demonstrate the CLI tool that utilizes these models, but I'll provide a brief overview of the development of these models and a high-level explanation of the ones I used. 
 
-Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of European style options contracts (and other derivatives).
+Prior to the 1970's, there was no widely accepted mathematical method to price options contracts. Then, in 1973, Fischer Black, Myron Scholes, and Robert Merton developed the Black-Scholes model. This model can successfully estimate the theoretical worth of European style options contracts (and other derivatives). This is the one of two models RustQuant utilizes. 
 
 However, for American contracts, there is an issue. Within each option contract is an exercise or expiration date. For European style options, the option can only be exercised on such a date while for American style options, the option can be exercised at any time up until or on that date. Due to this difference, the Black-Scholes model fails to price American style options. As such, a different approach is required.
 
@@ -60,11 +69,13 @@ See below for specific examples and all arguments/flags for each command, but he
 
 #### Automatic (auto)
 
-Both of these commands are used to price American options using the binomial model. The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user provides the asset symbol, a strike price, and the number of steps to run the binomial simulation. The tool then pulls all available option expiration dates from the symbol's option chain, and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the strike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, relevant market data, and the risk free rate from U.S. treasury securities, to calculate the fair value of that options contract.
+The unique aspect of automatic mode is that this command calculates the fair price of live options contracts pulled from the asset's live options chain. The user simply provides the asset symbol and a strike price. The tool then pulls all available option expiration dates from the symbol's option chain and displays them to the user in a drop down menu. The user selects a date, and the CLI tool selects the options contract with the strike price closest to the provided strike price that also expires on that day. The tool then uses the data pulled from the options chain, relevant market data, and the risk free rate from U.S. treasury securities, to calculate the fair value of that options contract.
+
+Note: The automatic command can only pull live options data for American options and will only use the binomial model.
 
 #### Manual
 
-This command calculates the fair value of theoretical American options contracts. Rather than pulling live data, each aspect of the option is provided manually (spot price, strike price, etc.). The command then uses the binomial model to price the theoretical option.
+This command calculates the fair value of theoretical American or European options contracts. Rather than pulling live data, each aspect of the option is provided manually (spot price, strike price, etc.). The command then uses the binomial model to price the theoretical option. It will also display the price using the Black-Scholes model if the option is European.
 
 <br />
 
@@ -76,9 +87,10 @@ This command calculates the fair value of theoretical American options contracts
 |:---           |:----                      |:----                                                  |
 |Symbol         |--symbol / -s \<SYMBOL\>   |The symbol to price                                    |
 |Strike         |--strike / -k \<STRIKE\>   |The target strike price for the selected option        |
-|Steps          |--steps / -n \<STEPS\>     |The number of steps in the binomial tree               |
+|Steps          |--steps / -n \<STEPS\>     |The number of steps in the binomial tree (default = 100)|
 |Call           |--call / -c                |Price a call option (default = true)                   |
 |Put            |--put / -p                 |Price a put option (default = false)                   |
+|Greeks			|--greeks / -g				|Display the 5 greeks alongside the calculated price 	|
 
 #### Manual
 
@@ -89,22 +101,27 @@ This command calculates the fair value of theoretical American options contracts
 |Time           |--time / -t \<STRIKE\>             |The time (in years) to expiration of the option        |
 |Rate           |--rate / -t \<STRIKE\>             |The risk free interest rate                            | 
 |Volatility     |--volatility / -v \<VOLATILITY\>   |The implied volatility of the option                   |
-|Steps          |--steps / -n \<STEPS\>             |The number of steps in the binomial tree               |
+|Steps          |--steps / -n \<STEPS\>             |The number of steps in the binomial tree (default = 100)|
 |Call           |--call / -c                        |Price a call option (default = true)                   |
 |Put            |--put / -p                         |Price a put option (default = false)                   |
+|American		|--american / -a					|Prices an American option (default = true)				|
+|European 		|--european / -e					|Prices a European option (default = false)				|
+|Greeks			|--greeks / -g						|Display the 5 greeks alongside the calculated price 	|
+
+Note: As of RustQuant 0.4, the STEPS argument is no longer required for either command. If it is not specified, it defaults to a value of 100.
 
 <br />
 
 ### Examples
 
-Note: I'm performing my tests on a Windows machine. The CLI is cross platform, with different versions being posted on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
+Note: I'm performing my tests on a Windows machine. The CLI is cross platform, with different versions being posted on the [project Github](https://github.com/JohnDCode/RustQuant-Publish).
 
 #### Example 1: Automatically Pricing a Live Apple Call Option
 
-Let's price a live Apple call option. We'll use the following command:
+Let's price a live Apple call option and display the greeks. We'll use the following command:
 
 ```console
-options_pricer.exe auto -s AAPL -k 200 -n 10000
+rustquant.exe auto -s AAPL -k 200 --greeks
 ```
 
 We do not need to specify the _--call_ flag, as the tool defaults to call options over put options.
@@ -121,12 +138,12 @@ _Powershell Window of Example 1_
 
 Our selected option has been priced at $US16.83!
 
-#### Example 2: Manually Pricing a Theoretical Call Option
+#### Example 2: Manually Pricing a European Theoretical Call Option
 
-Now, let's price the same option we did as above, but using the manual command to change the expiration date to 1 year from now. The command then becomes:
+Now, let's price the same option we did as above, but using the manual command to change the expiration date to 1 year from now and switching from an American to a European option. The command then becomes:
 
 ```console
-options_pricer.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 -n 10000
+rustquant.exe manual -s 213.95 -k 200 -t 1 -r 0.0424 -v 0.2965 --european --greeks
 ```
 
 This changes the output to:
@@ -134,18 +151,15 @@ This changes the output to:
 ![Manual Output 1](/manualOutput1.png){: width="1356" height="1009" }
 _Powershell Window of Example 2_
 
-As we can see, the difference in expiration date has increased the price of the option to $36.64.
 
 <br />
 
 ### Conclusion
 
-Altogether, I am satisfied with this project. However, I did not fulfill my original goal of including support for the Black-Scholes model. As such, in the future I plan to add the following features:
+Altogether, I am satisfied with this project. The latest versions provide several new features, but I plan to continue adding to this project. Some features to come include:
 
-- Black-Scholes Model
-- Automatic and Manual European Options
-- Calculation of "The Greeks"
+- Automating pricing of European options using realtime data
+- Accounting for dividend payments in the pricing calculations
 
-Despite failure on the European support front, I still learned quite a bit. 
 
-Once again, you can try it for yourself using the compiled binaries on the [project Github](https://github.com/JohnDCode/JDA-CLI-Options-Pricer-Publish).
+Once again, you can compile and/or try it for yourself, with all code being listed on my [Github](https://github.com/JohnDCode).
