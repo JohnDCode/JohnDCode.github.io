@@ -39,7 +39,7 @@ Well you know who didn't miss that mark? Christ!
 
 Christ was perfect. Despite taking on human flesh and experiencing human emotion and temptation, he was sinless. Now consider this.
 
-> "Jesus Christ is the same yesterday and today and forever" (Hebrew 13:8).
+> "Jesus Christ is the same yesterday and today and forever" (Hebrews 13:8).
 
 So, Christ is unchanging. Christ is also perfect and sinless. However, the world is sinful. This implies that the world, as a result of its corruption and sin, is not unchanging (in other words, dynamic). This is part of the burden that creation experiences as a result of sin: an uncertain and dynamic world. Our sin has removed us from the staticness of God, and we woe in such sin.
 
@@ -55,7 +55,7 @@ Similarly, consider your health. Even for those who consistently exercise and ma
 
 The obvious answer to both of these ponderations, is no. In this life, diligent workers are fired, healthy individuals get sick. Things can change. Things are uncertain.
 
-Now consider this. At any point, have you ever sat down to pray, started with "Dear Lord", and heard God tell you to go away? That today he didn't want to hear his beloved child? Or have you ever fallen, and confessed your sin on your knees and asked for the sake of God's only begotten son, Jesus Christ, to have mercy, has God said, "not today"? That he was all done with this whole forgiveness thing? By no means!
+Now consider this. At any point, have you ever sat down to pray, started with "Dear Lord", and heard God tell you to go away? That today he didn't want to hear his beloved child? Or have you ever fallen, and confessed your sin on your knees and asked for the sake of God's only begotten son, Jesus Christ, to have mercy, only to hear God say, "not today"? That he was all done with this whole forgiveness thing? By no means!
 
 This is so incredibly beautiful. Not only is God perfect in being loving, just, powerful, knowing, and so much more, but these qualities of his remain unchanged throughout time. From Abraham to Jacob, the same God.
 
@@ -65,7 +65,7 @@ However, in today's world, being static is often given a negative connotation. I
 
 > "Do not be conformed to this world, but be transformed by the renewal of your mind, that by testing you may discern what is the will of God, what is good and acceptable and perfect" (Romans 12:2).
 
-Here, Paul preaches something contrary to the notion of the world. He says to not be conformed to the world, and to seek God. The stronghold, pillar, that is God.
+Here, Paul preaches something contrary to the notion of the world. He says to not be conformed to the world, and to seek God. The stronghold, pillar, that is God. The exact opposite of the world, God is unchanging.
 
 <br />
 
@@ -123,12 +123,12 @@ I don't know how I can simultaneously believe this with all my heart, and still 
 
 <br />
 
-### Gospel
+### Hope
 
-Finally, I think every good message should close with a reminder of the gospel. Yes, we, as a part of creation, woe in sin and the dynamicness of the world. And yes, we can learn to navigate and follow Christ despite the state of that world. However, it is important to remember what God promises us for the future.
+Finally, I think every good message should close with a reminder of the hope we can take heart in. Yes, we, as a part of creation, woe in sin and the dynamicness of the world. And yes, we can learn to navigate and follow Christ despite the state of that world. However, it is important to remember what God promises us for the future.
 
 > "He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away" (Revelation 21:4).
 
-We, as followers of Christ, are promised redemption. Christ defeated sin when he rose again. And because of that, I will never have to worry.
+We, as followers of Christ, are promised redemption. We are promised a new world where the former things have passed away. Yes, we woe at the burden of sin and uncertainty in the world, but not for long. And because of that, I will never have to worry.
 
 Amen!
