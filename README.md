@@ -1,2 +1,2 @@
-# JohnDCode.Github.IO
+# JohnDCode.github.io
 [new] website
